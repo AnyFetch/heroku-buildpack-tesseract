@@ -1,10 +1,6 @@
 #!/bin/bash
 BUILD_DIR=$1
-TESSERACT_OCR_VERSION=3.02.02
-TESSERACT_OCR_DATA_VERSION=3.02
 
-TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
-TESSERACT_OCR_REMOTE=https://s3.amazonaws.com/tesseract-ocr/heroku/$TESSERACT_OCR_TGZ
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}vendor/tesseract-ocr
@@ -12,11 +8,11 @@ ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
 echo 'Getting Tesseract-ocr Binaries'
 mkdir -p $INSTALL_DIR
-curl $TESSERACT_OCR_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
+curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz -o - | tar -xz -C $INSTALL_DIR -f -
 
 echo 'Getting tesseract-ocr training data'
-echo 'English training data'
-curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.eng.tar.gz \
+echo 'French training data'
+curl http://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.fra.tar.gz \
   -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
 
 echo "Building runtime environment for tesseract-ocr"

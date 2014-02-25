@@ -5,8 +5,4 @@ PWD=$(pwd)
 echo $PWD
 cd $PWD
 echo "${HOME}/vendor"
-tar -zxvf tesseract.tar.gz -C ${HOME}/vendor
-
-ls /app/vendor/
-
-
+tar -zxvf tesseract.tar.gz -C $BUILD_DIR/vendor

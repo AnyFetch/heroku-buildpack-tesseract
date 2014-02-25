@@ -7,8 +7,6 @@ cd $PWD
 echo "${HOME}/vendor"
 tar -zxvf tesseract.tar.gz -C ${HOME}/vendor
 
-PATH=${HOME}/vendor/tesseract-ocr:$PATH
-
 
 
 

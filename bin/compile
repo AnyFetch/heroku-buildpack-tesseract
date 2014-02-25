@@ -6,6 +6,11 @@ INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
+echo "build_dir = $BUILD_DIR"
+echo "install_dir = $INSTALL_DIR"
+echo "TESSERACT_OCR_DIR = $TESSERACT_OCR_DIR"
+echo "ENVSCRIPT = $ENVSCRIPT"
+echo " "
 echo 'Getting Tesseract-ocr Binaries'
 mkdir -p $INSTALL_DIR
 curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz -o - | tar -xz -C $INSTALL_DIR -f -

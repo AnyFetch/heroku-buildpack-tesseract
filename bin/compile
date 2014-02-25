@@ -2,7 +2,5 @@
 BUILD_DIR=$1
 
 PWD=$(pwd)
-echo $PWD
 cd $PWD
-echo "${HOME}/vendor"
 tar -zxvf tesseract.tar.gz -C $BUILD_DIR/vendor

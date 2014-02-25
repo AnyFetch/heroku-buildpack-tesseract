@@ -1,27 +1,6 @@
 #!/bin/bash
 BUILD_DIR=$1
 
-INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
-INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
-TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
-ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
+tar -xzf ../tesseract.tar.gz -C ${home}/vendor/
 
-echo "build_dir = $BUILD_DIR"
-echo "install_dir = $INSTALL_DIR"
-echo "TESSERACT_OCR_DIR = $TESSERACT_OCR_DIR"
-echo "ENVSCRIPT = $ENVSCRIPT"
-echo " "
-echo 'Getting Tesseract-ocr Binaries'
-mkdir -p $INSTALL_DIR
-curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz -o - | tar -xz -C $INSTALL_DIR -f -
-
-echo 'Getting tesseract-ocr training data'
-echo 'French training data'
-curl http://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.fra.tar.gz \
-  -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
-
-echo "Building runtime environment for tesseract-ocr"
-mkdir -p $BUILD_DIR/.profile.d
-echo "export PATH=\"$TESSERACT_OCR_DIR/bin:\$PATH\"" > $ENVSCRIPT
-echo "export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR/lib:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
-echo "export TESSDATA_PREFIX=\"$TESSERACT_OCR_DIR/\"" >> $ENVSCRIPT
+PATH=${home}/vendor/tesseract-ocr:$PATH

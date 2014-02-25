@@ -2,7 +2,7 @@
 BUILD_DIR=$1
 
 echo pwd
-PWD = pwd
+PWD=pwd
 cd $PWD
 tar -xzf ../tesseract.tar.gz -C ${home}/vendor/
 

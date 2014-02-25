@@ -1,11 +1,10 @@
 #!/bin/bash
 BUILD_DIR=$1
 
-echo pwd
 PWD=$(pwd)
 echo $PWD
 cd $PWD
-tar -xzf ../tesseract.tar.gz -C ${home}/vendor/
+tar -xzf tesseract.tar.gz -C ${home}/vendor/
 
 PATH=${home}/vendor/tesseract-ocr:$PATH
 

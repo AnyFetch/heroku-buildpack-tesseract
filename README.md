@@ -12,7 +12,7 @@ BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
 Then, create a `.buildpacks` file inside your app:
 ```
 https://github.com/heroku/_YOUR_MAIN_BUILDPACK
-https://github.com/Papiel/heroku-buildpack-tesseract
+https://github.com/aratib/heroku-buildpack-tesseract
 ```
 See the documentation of heroku-build-multi for a detailed explanation
 how to use it.

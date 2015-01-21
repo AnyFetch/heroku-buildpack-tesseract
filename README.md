@@ -1,12 +1,21 @@
 heroku-buildpack-tesseract
 ===========================
+
+
+This buildpack is now useless.
+You can use https://github.com/ddollar/heroku-buildpack-apt
+with
+```
+echo tesseract-ocr > Aptfile
+```
+
+
 Added the libraries to use Tesseract 3.02.02 on Heroku
 
 This buildpack is built to be used through [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi).
 In your app you need to:
 ```
-heroku config:set
-BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
+heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
 ```
 
 Then, create a `.buildpacks` file inside your app:

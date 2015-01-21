@@ -1,7 +1,19 @@
 #!/bin/bash
 BUILD_DIR=$1
 
-PWD=$(pwd)
-cd $PWD
+BUILD_PATH=/tmp
+
+###############
+#  TESSERACT  #
+###############
 mkdir $BUILD_DIR/vendor
 tar -zxvf tesseract.tar.gz -C $BUILD_DIR/vendor
+
+# export PATH
+echo "Writing profile script"
+mkdir -p $BUILD_DIR/.profile.d
+cat <<EOF >$BUILD_DIR/.profile.d/tesseract_path.sh
+export PATH="\$HOME/vendor/tesseract-ocr/bin:$PATH"
+EOF
+export HOME=$BUILD_DIR
+sh $HOME/.profile.d/tesseract_path.sh

@@ -1,0 +1,5 @@
+# IDE Artifacts
+.idea/*
+*.iml
+*.sublime-*
+nohup.out

@@ -4,16 +4,14 @@ BUILD_DIR=$1
 BUILD_PATH=/tmp
 
 ###############
-#  TESSERACT  #
+#  TESSEDATA  #
 ###############
-mkdir $BUILD_DIR/vendor
-tar -zxvf tesseract.tar.gz -C $BUILD_DIR/vendor
+mkdir -p $BUILD_DIR/vendor/share
+tar -zxvf tessdata.tar.gz -C $BUILD_DIR/vendor/share
 
-# export PATH
-echo "Writing profile script"
+
+# export TESSDATA_PREFIX
+status "Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
-cat <<EOF >$BUILD_DIR/.profile.d/tesseract_path.sh
-export PATH="\$HOME/vendor/tesseract-ocr/bin:$PATH"
-EOF
-export HOME=$BUILD_DIR
-sh $HOME/.profile.d/tesseract_path.sh
+PROFILE_D=$BUILD_DIR/.profile.d/tesseract.sh
+echo "export TESSDATA_PREFIX=\"\$HOME/vendor/share/\";" >> $PROFILE_D
